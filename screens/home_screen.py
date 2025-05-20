@@ -13,6 +13,7 @@ def show_home_screen():
 
             if choice == "1":
                 gear_setup()
+                break
             elif choice == "2":
                 print("Exiting Game")
                 break

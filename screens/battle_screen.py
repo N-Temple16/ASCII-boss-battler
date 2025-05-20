@@ -1,2 +1,5 @@
+from utilities.ascii_art import mole
+
 def initiate_battle_screen():
-    print("Time to Battle!")
+    print("Look out for the Giant Mole!")
+    print(mole)
