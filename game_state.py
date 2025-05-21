@@ -27,6 +27,7 @@ class GameState:
             raise ValueError(f"No data found for combat style: {self.combat_style}")
 
 
+'''
     def apply_combat_style_modifiers(self):
         match self.combat_style:
             case "magic":
@@ -41,3 +42,4 @@ class GameState:
                 self.health = 100
                 self.prayer = 60
                 self.food = 6
+'''

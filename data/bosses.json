@@ -1,8 +1,8 @@
 {
   "Giant Mole": {
     "ascii": "mole_ascii_art",
-    "hp": 100,
-    "attack_types": ["melee"],
+    "health": 300,
+    "combat_style": ["melee"],
     "accuracy": 60,
     "damage_range": [5, 12]
   }
