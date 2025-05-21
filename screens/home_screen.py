@@ -3,22 +3,18 @@ from utilities.text_colours import TextColours
 
 t = TextColours
 
-def show_home_screen():
+def show_home_screen(game_state):
     while True:
-        try:
-            print(f"{t.magenta}Welcome To Boss Battle Sim{t.end}")
-            print(f"{t.red}[1] Fight{t.end}")
-            print(f"{t.yellow}[2] Exit{t.end}")
-            choice = input("Choose an option: ")
+        print(f"{t.magenta}Welcome To Boss Battle Sim{t.end}")
+        print(f"{t.red}[1] Fight{t.end}")
+        print(f"{t.yellow}[2] Exit{t.end}")
+        choice = input("Choose an option: ")
 
-            if choice == "1":
-                gear_setup()
-                break
-            elif choice == "2":
-                print("Exiting Game")
-                break
-            else:
-                print("not a correct choice >:()")
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+        if choice == "1":
+            return gear_setup(game_state)
+        elif choice == "2":
+            print("Exiting Game")
+            return False
+        else:
+            print("not a correct choice >:()")
         

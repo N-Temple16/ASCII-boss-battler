@@ -1,8 +1,12 @@
 from screens.home_screen import show_home_screen
+from game_state import GameState
 
 def main():
-    while True:
-        show_home_screen()
+    game_state = GameState()
+    running = True
+
+    while running:
+        running = show_home_screen(game_state)
 
 if __name__ == "__main__":
-    show_home_screen()
+    main()
