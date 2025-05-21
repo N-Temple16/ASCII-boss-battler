@@ -1,0 +1,31 @@
+{
+    "magic": {
+        "ascii": "",
+        "health": 100,
+        "combat_style": "magic",
+        "accuracy": 80,
+        "damage_range": [5, 10],
+        "prayer": 90,
+        "food": 8
+    },
+
+    "range": {
+        "ascii": "",
+        "health": 100,
+        "combat_style": "range",
+        "accuracy": 75,
+        "damage_range": [6, 8],
+        "prayer": 75,
+        "food": 7
+    },
+
+    "melee": {
+        "ascii": "",
+        "health": 100,
+        "combat_style": "melee",
+        "accuracy": 65,
+        "damage_range": [10, 15],
+        "prayer": 60,
+        "food": 6
+    }
+}

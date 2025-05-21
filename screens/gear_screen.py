@@ -20,10 +20,10 @@ def gear_setup(game_state):
 
         if choice in style_choice:
             selected_style = style_choice[choice]
-            correct_choice = input(f"{t.magenta}Are you sure you want to choose {selected_style.lower()}? [Y/N]:{t.end} ")
+            correct_choice = input(f"{t.magenta}Are you sure you want to choose {selected_style.title()}? [Y/N]:{t.end} ")
             if correct_choice.lower() == "y":
                 game_state.combat_style = selected_style.lower()
-                game_state.apply_combat_style_modifiers()
+                #game_state.apply_combat_style_modifiers()
                 return initiate_battle_screen(game_state)
             elif correct_choice.lower() == "n":
                 print("wise choice..")
