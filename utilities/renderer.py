@@ -1,0 +1,1 @@
+#for health bars I was thinking of doing something like full health [████████], half health [████    ], and a quarter health [██      ]

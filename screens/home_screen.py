@@ -12,6 +12,7 @@ def show_home_screen(game_state):
 
         if choice == "1":
             return gear_setup(game_state)
+        #might have another choice that give info on how the game works
         elif choice == "2":
             print("Exiting Game")
             return False

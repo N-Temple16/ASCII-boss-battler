@@ -1,3 +1,4 @@
+from boss import Boss
 import json
 
 class GameState:
@@ -6,9 +7,10 @@ class GameState:
         self.health = 0
         self.combat_style = ""
         self.accuracy = 0
-        self.damage_range = (0, 0)
+        self.damage_range = []
         self.prayer = 0
         self.food = 0
+        self.boss = None
     
     def load_json_combat_styles(self):
         with open("data/combat_styles.json") as file:
