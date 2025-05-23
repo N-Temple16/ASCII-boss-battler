@@ -11,6 +11,8 @@ class GameState:
         self.prayer = 0
         self.food = 0
         self.boss = None
+        self.ispraying = False
+        self.praying_against = ""
     
     def load_json_combat_styles(self):
         with open("data/combat_styles.json") as file:

@@ -31,11 +31,11 @@ def player_battle_options(game_state):
                 else:
                     print(f"{t.red}oh no you missed!{t.end}")
             case "2":
-                print("this does nothing for now")
+                game_state.ispraying = True
             case "3":
-                print("this also does nothing for now")
+                game_state.ispraying = True
             case "4":
-                print("this was the correct prayer... but still does nothing for now")
+                game_state.ispraying = True
             case "5":
                 if game_state.health == 100:
                     print("You are already full health, why would you want to do that?")
