@@ -1,8 +1,17 @@
-#battle options would just be like the menus
 import random
-from utilities.text_colours import TextColours
+import os
 from boss import Boss
+from utilities.text_colours import TextColours
+from utilities.ascii_art import mole
 from utilities.ascii_art import defeated_mole
+from utilities.renderer import draw_bar
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def pause_and_clear():
+    input("\nPress Enter to continue...")
+    clear_screen()
 
 t = TextColours
 
@@ -13,7 +22,9 @@ def player_battle_options(game_state):
         if game_state.prayer >= 15:
             game_state.ispraying = True
             game_state.praying_against = style
-            print(f"You begin protecting yourself from {style.capitalize()} attacks")
+            print(f"You begin protecting yourself from {style.capitalize()} attacks.")
+            print("You will continue until you run out of prayer points or you stop protecting")
+            return False
         else:
             game_state.prayer = 0
             print("You do not have any prayer remaining to protect yourself")
@@ -21,6 +32,14 @@ def player_battle_options(game_state):
         return True
 
     while boss.health > 0 and game_state.health > 0:
+        print(draw_bar("Your Health ", game_state.health, game_state.max_health))
+        print(draw_bar("Your Prayer", game_state.prayer, game_state.max_prayer))
+        print(f"Food: {game_state.food}")
+        print()
+        print(draw_bar("Boss Health", boss.health, boss.max_health))
+
+        print(mole)
+
         print(f"{t.magenta}The {boss.name} is about to attack with {boss.combat_style[0].title()}{t.end}")
         print(f"{t.magenta}Choose what you want to do:{t.end}")
         print(f"{t.cyan}[1] Attack{t.end}")
@@ -45,24 +64,30 @@ def player_battle_options(game_state):
                     print(f"{t.red}oh no you missed!{t.end}")
             case "2":
                 if not activate_prayer(game_state, "magic"):
+                    pause_and_clear()
                     continue
             case "3":
                 if not activate_prayer(game_state, "range"):
+                    pause_and_clear()
                     continue
             case "4":
                 if not activate_prayer(game_state, "melee"):
+                    pause_and_clear()
                     continue
             case "5":
                 game_state.ispraying = False
                 game_state.praying_against = ""
                 print("You stop praying")
+                pause_and_clear()
                 continue
             case "6":
                 if game_state.health == 100:
                     print("You are already full health, why would you want to do that?")
+                    pause_and_clear()
                     continue
                 elif game_state.food == 0:
                     print(f"{t.red}You have no food left{t.end}")
+                    pause_and_clear()
                     continue
                 else:
                     game_state.food -= 1
@@ -71,6 +96,7 @@ def player_battle_options(game_state):
                     print(f"{t.green}You have {game_state.food} food left{t.end}")
             case _:
                 print("invalid input")
+                pause_and_clear()
                 continue
         
         if boss.health > 0:
@@ -109,6 +135,7 @@ def player_battle_options(game_state):
                 else:
                     print(f"{t.red}The boss misses! You take no damage.{t.end}")
         elif boss.health <= 0:
+            clear_screen()
             print(f"Well done, you have slain the {boss.name}!")
             print(defeated_mole)
             break
@@ -116,4 +143,6 @@ def player_battle_options(game_state):
         if game_state.health <=0:
             print("Oh dear, you have died!")
             break
+        
+        pause_and_clear()
         

@@ -8,6 +8,7 @@ class Boss:
         self.accuracy = 0
         self.damage_range = []
         self.attack_types = []
+        self.max_health = 0
 
     def load_boss_json(self):
             with open("data/bosses.json") as file:
@@ -20,5 +21,6 @@ class Boss:
                 self.combat_style = stats["combat_style"]
                 self.accuracy = stats["accuracy"]
                 self.damage_range = stats["damage_range"]
+                self.max_health = stats["health"]
             else:
                 raise ValueError(f"No data found for the boss {self.name}")
