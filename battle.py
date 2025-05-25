@@ -53,15 +53,15 @@ def player_battle_options(game_state):
         match choice:
             case "1":
                 if random.randint(1, 100) <= game_state.accuracy:
-                    print(f"{t.green}successful hit!{t.end}")
+                    print(f"{t.green}Successful hit!{t.end}")
                     damage_dealt = random.randint(game_state.damage_range[0], game_state.damage_range[1])
                     boss.health -= damage_dealt
                     if boss.health <= 0:
                         boss.health = 0
-                    print(f"{t.green}you hit a {damage_dealt}{t.end}")
-                    print(f"{t.green}the boss's health is now {boss.health}{t.end}")
+                    print(f"{t.green}You hit a {damage_dealt}{t.end}")
+                    print(f"{t.green}The boss's health is now {boss.health}{t.end}")
                 else:
-                    print(f"{t.red}oh no you missed!{t.end}")
+                    print(f"{t.red}Oh no you missed!{t.end}")
             case "2":
                 if not activate_prayer(game_state, "magic"):
                     pause_and_clear()

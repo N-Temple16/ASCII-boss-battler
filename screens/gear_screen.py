@@ -1,5 +1,6 @@
 from utilities.text_colours import TextColours
 from screens.battle_screen import initiate_battle_screen
+from battle import pause_and_clear
 from game_state import GameState
 import json
 
@@ -16,7 +17,7 @@ def gear_setup(game_state):
     }
 
     while True:
-        print(f"{t.magenta}Here Are You Options For Combat Styles:{t.end}")
+        print(f"{t.magenta}Here Are Your Options For Combat Styles:{t.end}")
         print(f"{t.blue}[1] Magic{t.end}")
         print(f"{t.green}[2] Range{t.end}")
         print(f"{t.red}[3] Melee{t.end}")
@@ -39,8 +40,10 @@ Damage range = {selected_stats["damage_range"]}{t.end}
                 game_state.combat_style = selected_style.lower()
                 return initiate_battle_screen(game_state)
             elif correct_choice.lower() == "n":
-                print("wise choice..")
+                print("Wise choice..")
+                pause_and_clear()
             else:
                 print("Invalid input. Please provide the correct input.")
+                pause_and_clear()
         else:
             print("Invalid input. Input must be a number.")

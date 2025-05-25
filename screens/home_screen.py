@@ -17,5 +17,5 @@ def show_home_screen(game_state):
             print("Exiting Game")
             return False
         else:
-            print("not a correct choice >:(")
+            print("Please choose a valid option")
         
